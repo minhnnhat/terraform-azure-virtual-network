@@ -1,32 +1,54 @@
-variable "rg_name" {
-  default = ""
+variable "create_resource_group" {
+  description = "Whether create resource group - Default is false"
+  default     = false
 }
 
-variable "rg_location" {
-  default = ""
+variable "create_ddos_plan" {
+  description = "Create an ddos plan - Default is false"
+  default     = false
+}
+
+variable "resource_group_name" {
+  description = "Resource group name"
+  default     = ""
+}
+
+variable "location" {
+  description = "Location name"
+  default     = ""
 }
 
 variable "name" {
+  description = "Virtual network name"
   default = ""
 }
-#Lab
+
 variable "address_space" {
-  default = ""
-}
-# "10.0.0.0/16"
-variable "subnet_name_suffix" {
-  default = ""
-}
-# internal
-variable "address_prefixes" {
+  description = "Address space used in virtual update"
   default = []
 }
-# "10.0.1.0/24"
-variable "public_ip_suffix" {
-  default = ""
+
+variable "subnets" {
+  description = "For each subnet, create an object that contain fields"
+  type = map(any)
 }
-# public
-variable "network_interface_suffix" {
-  default = ""
+
+variable "ddos_plan_name" {
+  description = "DDoS Protection Plan name"
+  default     = ""
 }
-# nic
+
+variable "dns_servers" {
+  description = "List of dns servers to use for virtual network"
+  default     = []
+}
+
+variable "vnic_name" {
+  description = "Network interface name"
+  default     = ""
+}
+
+variable "ipconfig_name" {
+  description = "Ip configuration name"
+  default     = ""
+}

@@ -1,3 +1,4 @@
-output "network_interface_ids" {
-  value = azurerm_network_interface.az_vnet_interface.id
+output "az_vnic_ids" {
+  #value = toset([for vnicid in azurerm_network_interface.az_vnic : vnicid.id])
+  value = toset([for vnicid in azurerm_network_interface.az_vnic : vnicid.id])
 }
